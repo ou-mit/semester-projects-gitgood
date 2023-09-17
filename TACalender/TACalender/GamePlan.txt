@@ -1,0 +1,15 @@
+﻿-Make a calender
+
+---TA side
+	Should be able to view available slots, make slots, submit requests. Limit number of TAs in office, 
+	limit the number of TAs of course by course (2113 has more TAs than other, maybe do some ratio)
+
+	"A few requirements will be to limit the number of people who can have office hours for a course 
+	at the same time, a workflow for creating the office hours as well as being able to delete 
+	the appointment.  Also, think about what you would like to see as a student through the calendar"
+
+---Admin side
+	Should be able to view and accept/reject requests made by TAs, should have ability to make exceptions
+	Should be able to see cancellations made by TAs (occurences)
+
+	API Key - AIzaSyABWrNd-NZ5FMuaBo1aqu5T0buXhgNYyXw
