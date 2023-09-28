@@ -30,5 +30,11 @@ namespace TACalender
             AdminPassword adminPassword = new AdminPassword();
             adminPassword.Show();
         }
+
+        private void btnHomeTA_Click(object sender, RoutedEventArgs e)
+        {
+            TAPage tAPage = new TAPage();
+            tAPage.Show();
+        }
     }
 }
