@@ -15,6 +15,9 @@ namespace TACalender
         public DbSet<Educator> Educators { get; set; }
         public DbSet<SectionTA> SectionTAs { get; set; }
         public DbSet<TA> TAs { get; set; }
+        public DbSet<TATask> TATasks { get; set; }
+        public DbSet<Task> Tasks { get; set; }  
+        public DbSet<Request> Requests { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
