@@ -23,6 +23,25 @@ namespace TACalender
         public MainWindow()
         {
             InitializeComponent();
+            DB dB = new DB();
+            Course course = new Course();
+            course.Subject = 3033;
+            course.CourseNo = 001;
+            dB.Courses.Add(course);
+            dB.SaveChanges();
+            Instructor i = new Instructor();    
+            i.EduID = 1;
+            i.LName = string.Empty; 
+            i.OUEmail = string.Empty;
+            i.FName = string.Empty;
+            dB.Instructors.Add(i);
+            dB.SaveChanges();
+
+            foreach(var a in dB.Courses)
+            {
+                MessageBox.Show($"{a.CourseID}");
+            }
+
         }
 
         private void btnHomeAdmin_Click(object sender, RoutedEventArgs e)
