@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Andrew\Desktop\AdvProg\TACalender\TACalender\obj\Debug\net6.0-windows\
+C:\Users\Andrew\Desktop\AdvProg\semester-projects-gitgood\TACalender\TACalender\obj\Debug\net6.0-windows\
 TACalender
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\Andrew\Desktop\AdvProg\TACalender\TACalender\App.xaml
-2-1477693725
+C:\Users\Andrew\Desktop\AdvProg\semester-projects-gitgood\TACalender\TACalender\App.xaml
+3-1379770900
 
-4-951955401
+5-1392519982
 200961752341
-AdminPassword.xaml;MainWindow.xaml;
+AdminPassword.xaml;MainWindow.xaml;TAPage.xaml;
 
-False
+True
 
