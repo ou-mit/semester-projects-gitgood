@@ -23,24 +23,14 @@ namespace TACalender
         public MainWindow()
         {
             InitializeComponent();
-            DB dB = new DB();
-            Course course = new Course();
-            course.Subject = 3033;
-            course.CourseNo = 001;
-            dB.Courses.Add(course);
-            dB.SaveChanges();
-            Instructor i = new Instructor();    
-            i.EduID = 1;
-            i.LName = string.Empty; 
-            i.OUEmail = string.Empty;
-            i.FName = string.Empty;
-            dB.Instructors.Add(i);
-            dB.SaveChanges();
+            DB db = new DB();
+            TA educator = new TA();
+            educator.FName = "bob";
+            educator.LName = "sponge";
+            educator.OUEmail = "";
+            db.TAs.Add(educator);
+            db.SaveChanges();
 
-            foreach(var a in dB.Courses)
-            {
-                MessageBox.Show($"{a.CourseID}");
-            }
 
         }
 

@@ -11,14 +11,6 @@ namespace TACalender
 {
     public class Instructor : Educator
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int InstructorID { get; set; }
-        public List<Section> sections;
-
-        public void setInstructorID()
-        {
-            this.InstructorID = base.EduID;
-        }
+       public List<Section> sections;
     }
 }

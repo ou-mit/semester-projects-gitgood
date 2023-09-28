@@ -17,5 +17,6 @@ namespace TACalender
         public int CourseID { get; set; }
         public int SectionNo { get; set; }
         public int NumTas { get; set; }
+        public List<SectionTA> SectionTAList { get; set; }
     }
 }

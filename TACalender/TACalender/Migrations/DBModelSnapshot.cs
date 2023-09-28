@@ -28,23 +28,23 @@ namespace TACalender.Migrations
                     b.Property<int>("NumSections")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Subject")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("Subject")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("CourseID");
 
                     b.ToTable("Courses");
                 });
 
-            modelBuilder.Entity("TACalender.Instructor", b =>
+            modelBuilder.Entity("TACalender.Educator", b =>
                 {
-                    b.Property<int>("InstructorID")
+                    b.Property<int>("EduID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("EduID")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("FName")
                         .IsRequired()
@@ -73,9 +73,13 @@ namespace TACalender.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("InstructorID");
+                    b.HasKey("EduID");
 
-                    b.ToTable("Instructors");
+                    b.ToTable("Educators");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("Educator");
+
+                    b.UseTphMappingStrategy();
                 });
 
             modelBuilder.Entity("TACalender.Section", b =>
@@ -103,6 +107,41 @@ namespace TACalender.Migrations
                     b.ToTable("Sections");
                 });
 
+            modelBuilder.Entity("TACalender.SectionTA", b =>
+                {
+                    b.Property<int>("SecTAID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("SectionID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("TAID")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("SecTAID");
+
+                    b.HasIndex("SectionID");
+
+                    b.HasIndex("TAID");
+
+                    b.ToTable("SectionTAs");
+                });
+
+            modelBuilder.Entity("TACalender.Instructor", b =>
+                {
+                    b.HasBaseType("TACalender.Educator");
+
+                    b.HasDiscriminator().HasValue("Instructor");
+                });
+
+            modelBuilder.Entity("TACalender.TA", b =>
+                {
+                    b.HasBaseType("TACalender.Educator");
+
+                    b.HasDiscriminator().HasValue("TA");
+                });
+
             modelBuilder.Entity("TACalender.Section", b =>
                 {
                     b.HasOne("TACalender.Course", null)
@@ -112,9 +151,34 @@ namespace TACalender.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("TACalender.SectionTA", b =>
+                {
+                    b.HasOne("TACalender.Section", null)
+                        .WithMany("SectionTAList")
+                        .HasForeignKey("SectionID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TACalender.TA", null)
+                        .WithMany("SectionTAList")
+                        .HasForeignKey("TAID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("TACalender.Course", b =>
                 {
                     b.Navigation("Sections");
+                });
+
+            modelBuilder.Entity("TACalender.Section", b =>
+                {
+                    b.Navigation("SectionTAList");
+                });
+
+            modelBuilder.Entity("TACalender.TA", b =>
+                {
+                    b.Navigation("SectionTAList");
                 });
 #pragma warning restore 612, 618
         }
