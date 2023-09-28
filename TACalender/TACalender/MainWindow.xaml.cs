@@ -24,11 +24,13 @@ namespace TACalender
         {
             InitializeComponent();
             DB db = new DB();
-            TA educator = new TA();
-            educator.FName = "bob";
-            educator.LName = "sponge";
-            educator.OUEmail = "";
-            db.TAs.Add(educator);
+            Task t1 = new Task();
+            t1.Weekday = "Wednesday";
+            Time StartTime = new Time(1, 30, "pm");
+            Time EndTime = new Time(3, 00, "pm");
+            t1.StartTime = StartTime;
+            t1.EndTime = EndTime;
+            db.Tasks.Add(t1);
             db.SaveChanges();
 
 
