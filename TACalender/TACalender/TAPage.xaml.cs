@@ -22,10 +22,6 @@ namespace TACalender
         public TAPage()
         {
             InitializeComponent();
-
-
         }
-
-        
     }
 }
