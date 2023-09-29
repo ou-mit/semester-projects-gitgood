@@ -23,5 +23,12 @@ namespace TACalender
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            AddStudent addstu = new AddStudent();
+            addstu.Show();
+
+        }
     }
 }

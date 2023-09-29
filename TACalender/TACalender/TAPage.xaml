@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="TAPage" Height="450" Width="800">
     <Grid>
-        
+        <ListBox x:Name="lstTAs" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="149,99,373,39"/>
+        <TextBlock HorizontalAlignment="Left" Margin="195,59,0,0" TextWrapping="Wrap" Text="Select your name" VerticalAlignment="Top" Height="40" Width="186" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="485,104,0,0" TextWrapping="Wrap" Text="If you don't see your name, add yourself by clicking the button below" VerticalAlignment="Top" FontSize="18" Height="65" Width="309"/>
+        <Button x:Name="btnAddStudent" Content="Add Student" HorizontalAlignment="Left" Margin="523,217,0,0" VerticalAlignment="Top" Height="59" Width="124" Click="Button_Click"/>
+
     </Grid>
 </Window>

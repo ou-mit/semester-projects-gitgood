@@ -10,34 +10,27 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace TACalender
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for AddStudent.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AddStudent : Window
     {
-        public MainWindow()
+        public AddStudent()
         {
             InitializeComponent();
-            
-
-
         }
 
-        private void btnHomeAdmin_Click(object sender, RoutedEventArgs e)
+        private void btnAddStudent_Click(object sender, RoutedEventArgs e)
         {
-            AdminPassword adminPassword = new AdminPassword();
-            adminPassword.Show();
-        }
+            TA tA = new TA(txtFName.Text, txtMName.Text, txtLastName.Text, txtPrefName.Text, txtPersonEmail.Text, txtOUEmail.Text, Convert.ToInt32(txtNumSections.Text));
 
-        private void btnHomeTA_Click(object sender, RoutedEventArgs e)
-        {
-            TAPage tAPage = new TAPage();
-            tAPage.Show();
+            DB db = new DB();
+            db.TAs.Add(tA);
+            db.SaveChanges();
         }
     }
 }
