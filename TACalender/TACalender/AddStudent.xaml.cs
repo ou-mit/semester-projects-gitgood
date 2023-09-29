@@ -19,6 +19,7 @@ namespace TACalender
     /// </summary>
     public partial class AddStudent : Window
     {
+        TA tA;
         public AddStudent()
         {
             InitializeComponent();
@@ -26,26 +27,27 @@ namespace TACalender
 
         private void btnAddStudent_Click(object sender, RoutedEventArgs e)
         {
-            TA tA = new TA(txtFName.Text, txtMName.Text, txtLastName.Text, txtPrefName.Text, txtPersonEmail.Text, txtOUEmail.Text, Convert.ToInt32(txtNumSections.Text));
+            tA = new TA(txtFName.Text, txtMName.Text, txtLastName.Text, txtPrefName.Text, txtPersonEmail.Text, txtOUEmail.Text, Convert.ToInt32(txtNumSections.Text));
 
             DB db = new DB();
             db.TAs.Add(tA);
+
             try
             {
                 db.SaveChanges();
                 MessageBox.Show("Success","Student Added Succesfully",MessageBoxButton.OK, MessageBoxImage.Information);
+                TAPage aas = new TAPage();
+                aas.Show();
                 this.Close();
-                TAPage tAPage = new TAPage();
 
-                foreach (var stu in db.TAs)
-                {
-                    tAPage.lstTAs.Items.Add(stu);
-                }
+
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
+
+        
     }
 }

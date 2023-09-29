@@ -22,17 +22,24 @@ namespace TACalender
         public TAPage()
         {
             InitializeComponent();
-            DB db = new DB();   
-            foreach(var stu in db.TAs)
-            {
-                lstTAs.Items.Add(stu);
-            }
+            updateList();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            this.Close();
             AddStudent addstu = new AddStudent();
             addstu.Show();
+        }
+
+        public void updateList()
+        {
+            lstTAs.Items.Clear();
+            DB db = new DB();
+            foreach (var stu in db.TAs)
+            {
+                lstTAs.Items.Add(stu);
+            }
         }
     }
 }
