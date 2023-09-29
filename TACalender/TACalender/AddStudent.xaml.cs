@@ -30,7 +30,22 @@ namespace TACalender
 
             DB db = new DB();
             db.TAs.Add(tA);
-            db.SaveChanges();
+            try
+            {
+                db.SaveChanges();
+                MessageBox.Show("Success","Student Added Succesfully",MessageBoxButton.OK, MessageBoxImage.Information);
+                this.Close();
+                TAPage tAPage = new TAPage();
+
+                foreach (var stu in db.TAs)
+                {
+                    tAPage.lstTAs.Items.Add(stu);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

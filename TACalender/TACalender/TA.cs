@@ -19,13 +19,25 @@ namespace TACalender
 
         public TA (string fname, string mname, string lname, string prefname, string personemail, string ouemail, int numsections)
         {
-            this.PrefName = prefname;
+            this.FName = fname;
             this.MName = mname;
             this.LName = lname;
             this.PrefName = prefname;
             this.PersonalEmail = personemail;
             this.OUEmail = ouemail;
             this.NumSection = numsections;
+        }
+
+        public override string ToString()
+        {
+            if (this.PrefName.Length > 0)
+            {
+                return $"{PrefName} {LName}";
+            }
+            else
+            {
+                return $"{FName} {LName}";
+            }
         }
     }
 }
